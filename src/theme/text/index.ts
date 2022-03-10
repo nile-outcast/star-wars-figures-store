@@ -1,4 +1,3 @@
-import { COLORS } from '..'
 import { button } from './button'
 import { heading } from './heading'
 import { input } from './input'
@@ -32,7 +31,6 @@ TEXT.heading.sm = {
     font-weight: 700;
     font-size: 32px;
     line-height: 132%;
-    color: ${COLORS.text['txt-900']};
   `,
 }
 TEXT.heading.lg = heading.md
@@ -45,7 +43,6 @@ TEXT.paragraph.xl = {
     font-weight: 600;
     font-size: 32px;
     line-height: 142%;
-    color: ${COLORS.text['txt-900']};
   `,
 }
 

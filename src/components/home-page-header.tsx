@@ -1,31 +1,18 @@
+import { useBreakpoint } from 'src/hooks'
 import styled from 'styled-components'
 
-import { useBreakpoint } from './hooks/use-breakpoint'
-import { Logo } from './ui/icons/logo'
-
-export const Header = () => (
-  <HeaderTag>
-    <LogoBox>
-      <Logo />
-    </LogoBox>
+export const HomePageHeader = () => (
+  <HomeHeader>
     <H1>Star Wars Figures</H1>
     <P>Find the latest products for the biggest fans of the iconic saga.</P>
-  </HeaderTag>
+  </HomeHeader>
 )
 
-const HeaderTag = styled.header`
+const HomeHeader = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-`
-
-const LogoBox = styled.div`
-  padding: 34px 0 35px 0;
-
-  @media ${({ theme }) => theme.breakpoints.bs} {
-    padding: 24px 0 25px 0;
-  }
 `
 
 const H1 = styled.h1`
