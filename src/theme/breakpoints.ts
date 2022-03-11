@@ -1,4 +1,6 @@
-export const BREAKPOINTS = {
+import { PointFieldsString } from './types'
+
+export const BREAKPOINTS: PointFieldsString = {
   bs: '(max-width: 425px)',
   sm: '(max-width: 768px) and (min-width: 426px)',
   md: '(max-width: 980px) and (min-width: 769px)',

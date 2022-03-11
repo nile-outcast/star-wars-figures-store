@@ -1,6 +1,6 @@
-import { TextFields } from '.'
+import { PointFieldsObject } from '../types'
 
-export const heading: TextFields = {
+export const heading: PointFieldsObject = {
   bs: {
     h900: `
         font-weight: 700;
@@ -15,7 +15,13 @@ export const heading: TextFields = {
       `,
   },
 
-  sm: {},
+  sm: {
+    h600: `
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 132%;
+      `,
+  },
 
   md: {
     h900: `

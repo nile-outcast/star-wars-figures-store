@@ -1,12 +1,13 @@
 import 'styled-components'
 
-import { BREAKPOINTS, COLORS, EFFECTS, TEXT } from 'src/theme'
+import { BREAKPOINTS, COLORS, EFFECTS, LAYOUTS, TEXTS } from 'src/theme'
 
 declare module 'styled-components' {
   export interface DefaultTheme {
-    colors: typeof COLORS
     breakpoints: typeof BREAKPOINTS
+    colors: typeof COLORS
     effects: typeof EFFECTS
-    text: typeof TEXT
+    layouts: typeof LAYOUTS
+    texts: typeof TEXTS
   }
 }

@@ -1,9 +1,11 @@
 import { FC } from 'react'
+import { useBreakpoint } from 'src/hooks'
 import styled from 'styled-components'
 
 export const GridContainer: FC = ({ children }) => <Grid>{children}</Grid>
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  align-items: start;
+  ${({ theme }) => theme.layouts.grid[useBreakpoint()]}
 `

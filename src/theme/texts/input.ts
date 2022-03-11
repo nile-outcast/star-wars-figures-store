@@ -1,6 +1,6 @@
-import { TextFields } from '.'
+import { PointFieldsObject } from '../types'
 
-export const input: TextFields = {
+export const input: PointFieldsObject = {
   bs: {
     value100: `
         font-weight: 500;

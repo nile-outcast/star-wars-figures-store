@@ -16,7 +16,8 @@ const HomeHeader = styled.div`
 `
 
 const H1 = styled.h1`
-  ${({ theme }) => theme.text.heading[useBreakpoint()].h900};
+  ${({ theme: { texts } }) =>
+    texts.heading[useBreakpoint()].h900 || texts.heading.md.h900};
   text-align: center;
   margin: 160px 0 0 0;
   max-width: 600px;
@@ -27,14 +28,15 @@ const H1 = styled.h1`
 `
 
 const P = styled.p`
-  margin: 48px 0 146px 0;
+  ${({ theme: { texts } }) =>
+    texts.paragraph[useBreakpoint()].p900 || texts.paragraph.md.p900};
+  margin: 48px 0 188px 0;
   text-align: center;
-  max-width: 780px;
-  ${({ theme }) => theme.text.paragraph[useBreakpoint()].p900};
+  max-width: 650px;
 
-  @media (max-width: 1400px) and (min-width: 425px) {
-    max-width: 650px;
-    margin-bottom: 188px;
+  @media ${({ theme }) => theme.breakpoints.xl} {
+    max-width: 780px;
+    margin-bottom: 146px;
   }
 
   @media ${({ theme }) => theme.breakpoints.bs} {

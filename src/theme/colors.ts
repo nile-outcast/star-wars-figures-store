@@ -1,7 +1,7 @@
 export const COLORS = {
   accent: {
-    'accent-800': '#000000',
-    'accent-900': '#7B61FF',
+    'accent-800': '#7B61FF',
+    'accent-900': '#000000',
   },
 
   text: {

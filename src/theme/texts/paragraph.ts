@@ -1,6 +1,6 @@
-import { TextFields } from '.'
+import { PointFieldsObject } from '../types'
 
-export const paragraph: TextFields = {
+export const paragraph: PointFieldsObject = {
   bs: {
     p900: `
         font-weight: 600;
@@ -45,5 +45,11 @@ export const paragraph: TextFields = {
 
   lg: {},
 
-  xl: {},
+  xl: {
+    p900: `
+        font-weight: 600;
+        font-size: 32px;
+        line-height: 142%;
+      `,
+  },
 }

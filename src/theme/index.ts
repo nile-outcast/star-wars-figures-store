@@ -3,16 +3,19 @@ import { DefaultTheme } from 'styled-components'
 import { BREAKPOINTS } from './breakpoints'
 import { COLORS } from './colors'
 import { EFFECTS } from './effects'
-import { TEXT } from './text'
+import { LAYOUTS } from './layouts'
+import { TEXTS } from './texts'
 
 export const theme: DefaultTheme = {
-  colors: COLORS,
   breakpoints: BREAKPOINTS,
+  colors: COLORS,
   effects: EFFECTS,
-  text: TEXT,
+  layouts: LAYOUTS,
+  texts: TEXTS,
 }
 
 export { BREAKPOINTS } from './breakpoints'
 export { COLORS } from './colors'
 export { EFFECTS } from './effects'
-export { TEXT } from './text'
+export { LAYOUTS } from './layouts'
+export { TEXTS } from './texts'

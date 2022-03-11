@@ -1,5 +1,5 @@
 import type { GetStaticProps, NextPage } from 'next'
-import { HomePageHeader } from 'src/components'
+import { HomePageHeader, ProductItem } from 'src/components'
 import { Product } from 'src/types'
 import { GridContainer } from 'src/ui'
 
@@ -12,7 +12,11 @@ const Home: NextPage<Props> = ({ data, totalPages }: Props) => {
   return (
     <main>
       <HomePageHeader />
-      <GridContainer></GridContainer>
+      <GridContainer>
+        {data.map(product => (
+          <ProductItem key={product.id} product={product} />
+        ))}
+      </GridContainer>
     </main>
   )
 }
