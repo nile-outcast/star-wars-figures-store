@@ -1,14 +1,15 @@
-import type { GetStaticProps, NextPage } from 'next'
+import { BASE_URL } from 'config'
+import type { GetServerSideProps, NextPage } from 'next'
 import { HomePageHeader, ProductItem } from 'src/components'
 import { Product } from 'src/types'
 import { GridContainer } from 'src/ui'
 
 type Props = {
   data: Product[]
-  totalPages: number
+  meta: { totalPages: number }
 }
 
-const Home: NextPage<Props> = ({ data, totalPages }: Props) => {
+const Products: NextPage<Props> = ({ data }: Props) => {
   return (
     <main>
       <HomePageHeader />
@@ -21,9 +22,9 @@ const Home: NextPage<Props> = ({ data, totalPages }: Props) => {
   )
 }
 
-export const getStaticProps: GetStaticProps = async () => {
-  const res = await fetch(`${process.env.API_HOST}/products?page=1`)
-  const data = await res.json()
+export const getServerSideProps: GetServerSideProps = async () => {
+  const res = await fetch(`${BASE_URL}/api/products?page=1`)
+  const data: Props = await res.json()
 
   if (!data) {
     return {
@@ -32,11 +33,8 @@ export const getStaticProps: GetStaticProps = async () => {
   }
 
   return {
-    props: {
-      data: data.data,
-      totalPages: data.meta.totalPages,
-    },
+    props: data,
   }
 }
 
-export default Home
+export default Products
