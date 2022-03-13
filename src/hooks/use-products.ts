@@ -1,9 +1,11 @@
 import { BASE_URL } from 'config'
-import useSWR from 'swr'
+import useSWRInfinite, { SWRInfiniteConfiguration } from 'swr/infinite'
 
-export const useProducts = <T>(page: number) => {
+export const useProducts = <T>(options?: SWRInfiniteConfiguration<T>) => {
   const fetcher = (page: string) =>
     fetch(`${BASE_URL}/api/products?page=${page}`).then(res => res.json())
 
-  return useSWR<T>(`${page}`, fetcher)
+  const getKey = (pageIndex: number) => `${pageIndex + 1}`
+
+  return useSWRInfinite<T>(getKey, fetcher, options)
 }
