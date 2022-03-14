@@ -41,6 +41,7 @@ const Img = styled(Image)`
 const ImageBox = styled.div`
   display: flex;
   justify-content: center;
+  width: 100%;
   height: 394px;
 
   @media ${({ theme }) => theme.breakpoints.bs} {
@@ -59,7 +60,8 @@ const H4 = styled.h4`
 
 const P = styled.p`
   ${({ theme }) =>
-    theme.texts.heading[useBreakpoint()].p400 || theme.texts.heading.md.p400}
+    theme.texts.paragraph[useBreakpoint()].p400 ||
+    theme.texts.paragraph.md.p400}
 
   text-align: center;
   color: ${({ theme }) => theme.colors.text['txt-800']};
