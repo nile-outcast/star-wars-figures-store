@@ -6,8 +6,8 @@ import { GridContainer } from 'src/ui'
 
 type Props = {
   data: {
-    relatedProducts: Product[]
     product: Product
+    relatedProducts: Product[]
   }
 }
 
