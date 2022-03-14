@@ -8,7 +8,6 @@ const ItemBox = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 40px 0;
-  cursor: pointer;
   border-radius: 48px;
   background-color: ${({ theme }) => theme.colors.background['bg-200']};
 

@@ -2,6 +2,8 @@
 const nextConfig = {
   reactStrictMode: true,
 
+  basePath: '/products',
+
   images: {
     domains: ['react-test-starwars.vercel.app'],
   },

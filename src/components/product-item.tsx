@@ -1,5 +1,6 @@
 import { BASE_URL } from 'config'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useBreakpoint } from 'src/hooks'
 import { Product } from 'src/types'
 import { Button, GridItem } from 'src/ui'
@@ -20,11 +21,15 @@ export const ProductItem = ({ product }: Props) => {
           alt={product.name}
           width={isBase ? 255 : 394}
           height={isBase ? 255 : 394}
+          priority
         />
       </ImageBox>
       <H4>{product.name}</H4>
       <P>{product.shortDescription}</P>
-      <Button>{`Buy $${product.price}`}</Button>
+
+      <Link href={`/${product.id}`} passHref>
+        <Button>{`Buy $${product.price}`}</Button>
+      </Link>
     </GridItem>
   )
 }
