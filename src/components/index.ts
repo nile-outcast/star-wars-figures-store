@@ -1,4 +1,6 @@
 export { Header } from './header'
 export { HomePageHeader } from './home-page-header'
 export { PageLayout } from './page-layout'
+export { ProductCard } from './product-card'
 export { ProductItem } from './product-item'
+export { RelatedProducts } from './related-products'

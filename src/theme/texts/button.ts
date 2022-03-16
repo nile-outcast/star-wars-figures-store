@@ -3,7 +3,7 @@ import { PointFieldsObject } from '../types'
 export const button: PointFieldsObject = {
   bs: {
     btn100: `
-        font-family: Rubik;
+        font-family: Rubik, sans-serif;
         font-weight: 700;
         font-size: 18px;
         line-height: 100%;
@@ -12,7 +12,7 @@ export const button: PointFieldsObject = {
   sm: {},
   md: {
     btn100: `
-        font-family: Rubik;
+        font-family: Rubik, sans-serif;
         font-weight: 700;
         font-size: 24px;
         line-height: 100%;

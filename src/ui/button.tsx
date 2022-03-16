@@ -22,6 +22,8 @@ const StyledButton = styled.button`
     texts.button[useBreakpoint()].btn100 || texts.button.md.btn100};
   ${({ theme }) => theme.effects.shadow.sh200};
 
+  width: max-content;
+
   color: ${({ theme }) => theme.colors.text['txt-100']};
   background: ${({ theme }) => theme.colors.accent['accent-900']};
   border: none;

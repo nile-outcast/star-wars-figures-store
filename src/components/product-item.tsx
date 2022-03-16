@@ -1,9 +1,8 @@
 import { BASE_URL } from 'config'
-import Image from 'next/image'
 import Link from 'next/link'
 import { useBreakpoint } from 'src/hooks'
 import { Product } from 'src/types'
-import { Button, GridItem } from 'src/ui'
+import { Button, Image, ProductContainer } from 'src/ui'
 import styled from 'styled-components'
 
 type Props = {
@@ -11,40 +10,36 @@ type Props = {
 }
 
 export const ProductItem = ({ product }: Props) => {
-  const isBase = useBreakpoint() === 'bs'
+  const size = useBreakpoint() === 'bs' ? 255 : 394
 
   return (
-    <GridItem>
-      <ImageBox>
-        <Img
+    <ProductContainer>
+      <Content>
+        <Image
           src={`${BASE_URL}${product.image}`}
           alt={product.name}
-          width={isBase ? 255 : 394}
-          height={isBase ? 255 : 394}
+          size={size}
           priority
         />
-      </ImageBox>
-      <H4>{product.name}</H4>
-      <P>{product.shortDescription}</P>
+        <H4>{product.name}</H4>
+        <P>{product.shortDescription}</P>
 
-      <Link href={`/${product.id}`} passHref>
-        <Button>{`Buy $${product.price}`}</Button>
-      </Link>
-    </GridItem>
+        <Link href={`/${product.id}`} passHref>
+          <Button>{`Buy $${product.price}`}</Button>
+        </Link>
+      </Content>
+    </ProductContainer>
   )
 }
 
-const Img = styled(Image)`
-  object-fit: cover;
-`
-
-const ImageBox = styled.div`
+const Content = styled.div`
   display: flex;
-  justify-content: center;
-  height: 394px;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 0;
 
   @media ${({ theme }) => theme.breakpoints.bs} {
-    height: 255px;
+    padding: 24px 0px;
   }
 `
 
@@ -59,7 +54,8 @@ const H4 = styled.h4`
 
 const P = styled.p`
   ${({ theme }) =>
-    theme.texts.heading[useBreakpoint()].p400 || theme.texts.heading.md.p400}
+    theme.texts.paragraph[useBreakpoint()].p400 ||
+    theme.texts.paragraph.md.p400}
 
   text-align: center;
   color: ${({ theme }) => theme.colors.text['txt-800']};

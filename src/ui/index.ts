@@ -1,4 +1,6 @@
 export { Button } from './button'
 export { GridContainer } from './grid-container'
-export { GridItem } from './grid-item'
+export { Image } from './image'
 export { Loader } from './loader'
+export { ProductContainer } from './product-container'
+export { TextInput } from './text-input'
