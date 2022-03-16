@@ -8,6 +8,18 @@ export const heading: PointFieldsObject = {
         line-height: 112%;
       `,
 
+    h800: `
+        font-weight: 700;
+        font-size: 44px;
+        line-height: 112%;
+      `,
+
+    h700: `
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 112%;
+      `,
+
     h600: `
         font-weight: 700;
         font-size: 28px;

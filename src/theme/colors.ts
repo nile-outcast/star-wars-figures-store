@@ -13,6 +13,7 @@ export const COLORS = {
   background: {
     'bg-100': '#FFFFFF',
     'bg-200': '#F1F0FE',
+    'bg-300': '#FCFCFC',
   },
 
   stroke: {
