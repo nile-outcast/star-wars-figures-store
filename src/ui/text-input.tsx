@@ -10,7 +10,7 @@ export const TextInput: FC<InputHTMLAttributes<HTMLInputElement>> = ({
   const [field, meta] = useField(props.name ? props.name : '')
 
   return (
-    <Container isValid={meta.touched && !meta.error && meta.value}>
+    <Container isValid={meta.touched && !meta.error}>
       <Input {...field} {...props} />
       {children}
     </Container>
