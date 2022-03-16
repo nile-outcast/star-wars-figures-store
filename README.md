@@ -9,4 +9,4 @@
 
 ## Deploy on Vercel
 
-Visit [Vercel Platform](https://https://star-wars-figures-store.vercel.app)
+Visit [Vercel Platform](https://star-wars-figures-store.vercel.app)
