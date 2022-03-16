@@ -1,18 +1,53 @@
+/* eslint-disable no-console */
 import { BASE_URL } from 'config'
-import { Form, Formik } from 'formik'
+import { Form, Formik, FormikHelpers } from 'formik'
+import { useCallback, useState } from 'react'
+import { Alert } from 'src/components'
 import { useBreakpoint } from 'src/hooks'
 import { PreOrderSchema } from 'src/schemas'
 import { Product } from 'src/types'
 import { Button, Image, ProductContainer, TextInput } from 'src/ui'
+import { preOrderProduct } from 'src/utils'
 import styled from 'styled-components'
 
 type Props = {
   product: Product
 }
 
+type Values = { email: string }
+
+const initialValues: Values = {
+  email: '',
+}
+
 export const ProductCard = ({ product }: Props) => {
   const isBase = useBreakpoint() === 'bs'
   const size = isBase ? 450 : 800
+
+  const [alertMessage, setAlertMessage] = useState('')
+  const [showAlert, setShowAlert] = useState(false)
+
+  const closeAlert = useCallback(() => setShowAlert(false), [])
+
+  const handleSubmit = useCallback(
+    async (values: Values, actions: FormikHelpers<Values>) => {
+      try {
+        const { message, error } = await preOrderProduct(
+          product.id,
+          values.email,
+        )
+
+        error ? setAlertMessage(error) : message && setAlertMessage(message)
+      } catch (e) {
+        setAlertMessage('Something is wrong, try again later')
+      } finally {
+        setShowAlert(true)
+        actions.setSubmitting(false)
+        actions.resetForm()
+      }
+    },
+    [product.id],
+  )
 
   return (
     <Content>
@@ -27,14 +62,9 @@ export const ProductCard = ({ product }: Props) => {
         <H2>{product.name}</H2>
         <P>{product.description}</P>
         <Formik
-          initialValues={{
-            email: '',
-          }}
+          initialValues={initialValues}
           validationSchema={PreOrderSchema}
-          onSubmit={(values, actions) => {
-            alert(JSON.stringify(values, null, 2))
-            actions.setSubmitting(false)
-          }}>
+          onSubmit={handleSubmit}>
           {({ values, handleChange }) => (
             <FormBox>
               <TextInput
@@ -53,6 +83,8 @@ export const ProductCard = ({ product }: Props) => {
           )}
         </Formik>
       </Description>
+
+      {showAlert && <Alert message={alertMessage} onClose={closeAlert} />}
     </Content>
   )
 }
