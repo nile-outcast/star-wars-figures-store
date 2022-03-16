@@ -1,8 +1,7 @@
 import { BASE_URL } from 'config'
 import { GetServerSideProps } from 'next'
-import { ProductItem } from 'src/components'
+import { ProductCard, RelatedProducts } from 'src/components'
 import { Product } from 'src/types'
-import { GridContainer } from 'src/ui'
 
 type Props = {
   data: {
@@ -16,12 +15,8 @@ const ProductPage = ({ data }: Props) => {
 
   return (
     <>
-      <div>{product.name}</div>
-      <GridContainer>
-        {relatedProducts.map(product => (
-          <ProductItem key={product.id} product={product} />
-        ))}
-      </GridContainer>
+      <ProductCard product={product} />
+      <RelatedProducts relatedProducts={relatedProducts} />
     </>
   )
 }

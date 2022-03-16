@@ -1,6 +1,6 @@
 import { PointFieldsString } from '../types'
 
-export const grid: PointFieldsString = {
+const list: PointFieldsString = {
   bs: `
     grid: auto / repeat(1, 1fr);
     gap: 16px 0px;
@@ -25,4 +25,41 @@ export const grid: PointFieldsString = {
     grid: auto / repeat(3, 1fr);
     gap: 32px 30px;
   `,
+}
+
+const card: PointFieldsString = {
+  bs: `
+    grid: auto / repeat(1, 1fr);
+    gap: 32px;
+    padding: 50px 0 40px;
+  `,
+
+  sm: `
+    grid: auto / repeat(1, 1fr);
+    gap: 48px;
+    padding: 50px 0 70px;
+  `,
+
+  md: `
+    grid: auto / repeat(1, 1fr);
+    gap: 48px;
+    padding: 50px 0 70px;
+  `,
+
+  lg: `
+    grid: auto / repeat(1, 1fr);
+    gap: 48px;
+    padding: 50px 20px 70px;
+  `,
+
+  xl: `
+    grid: auto / repeat(2, 1fr);
+    gap: 60px;
+    padding: 50px 60px 70px;
+  `,
+}
+
+export const grid = {
+  list: list,
+  card: card,
 }

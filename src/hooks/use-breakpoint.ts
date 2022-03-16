@@ -18,7 +18,7 @@ export const useBreakpoint = () => {
 
   if (width <= 980 && width > 768) return 'md'
 
-  if (width <= 768 && width > 425) return 'sm'
+  if (width <= 768 && width > 525) return 'sm'
 
   return 'bs'
 }
