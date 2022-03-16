@@ -1,3 +1,7 @@
+# The guidance for the test task
+
+[Clicl here](https://gitlab.com/-/snippets/2056636)
+
 ## Stack
 
 - React
