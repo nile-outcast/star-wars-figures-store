@@ -6,3 +6,8 @@ export type Product = {
   description?: string
   shortDescription: string
 }
+
+export type PageResponseType = {
+  data: Product[]
+  meta: { totalPages: number }
+}

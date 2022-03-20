@@ -7,7 +7,7 @@ type Props = ImageProps & {
 
 export const Image = ({ size, ...props }: Props) => (
   <ImageBox size={size}>
-    <Img {...props} width={size} height={size} />
+    <NextImage {...props} width={size} height={size} objectFit="cover" />
   </ImageBox>
 )
 
@@ -15,8 +15,4 @@ const ImageBox = styled.div<{ size: number }>`
   display: flex;
   justify-content: center;
   height: ${({ size }) => size}px;
-`
-
-const Img = styled(NextImage)`
-  object-fit: cover;
 `
