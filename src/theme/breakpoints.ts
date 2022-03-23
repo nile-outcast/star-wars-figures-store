@@ -1,6 +1,6 @@
-import { PointFieldsString } from './types'
+import { PointFields } from 'src/theme/types'
 
-export const BREAKPOINTS: PointFieldsString = {
+export const BREAKPOINTS: PointFields<string> = {
   bs: '(max-width: 525px)',
   sm: '(max-width: 768px) and (min-width: 526px)',
   md: '(max-width: 980px) and (min-width: 769px)',

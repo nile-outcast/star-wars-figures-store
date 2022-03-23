@@ -1,4 +1,6 @@
-type PointFields<T> = {
+import { FlattenSimpleInterpolation } from 'styled-components'
+
+export type PointFields<T> = {
   bs: T
   sm: T
   md: T
@@ -6,6 +8,8 @@ type PointFields<T> = {
   xl: T
 }
 
-export type PointFieldsObject = PointFields<{ [key: string]: string }>
+export type PointFieldsObject = PointFields<{
+  [key: string]: FlattenSimpleInterpolation
+}>
 
-export type PointFieldsString = PointFields<string>
+export type PointFieldsCSS = PointFields<FlattenSimpleInterpolation>
