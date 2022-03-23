@@ -2,16 +2,11 @@ import type { NextPage } from 'next'
 import { useCallback, useEffect } from 'react'
 import { HomePageHeader, ProductItem } from 'src/components'
 import { useProducts } from 'src/hooks'
-import { Product } from 'src/types'
+import { PageResponseType } from 'src/types'
 import { GridContainer, Loader } from 'src/ui'
 
-type Props = {
-  data: Product[]
-  meta: { totalPages: number }
-}
-
 const Products: NextPage = () => {
-  const { data, size, setSize, isValidating } = useProducts<Props>()
+  const { data, size, setSize, isValidating } = useProducts<PageResponseType>()
 
   const scrollHandler = useCallback(
     (event: Event) => {

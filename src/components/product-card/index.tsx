@@ -1,23 +1,18 @@
-/* eslint-disable no-console */
 import { BASE_URL } from 'config'
-import { Form, Formik, FormikHelpers } from 'formik'
+import { FormikHelpers } from 'formik'
 import { useCallback, useState } from 'react'
 import { Alert } from 'src/components'
 import { useBreakpoint } from 'src/hooks'
-import { PreOrderSchema } from 'src/schemas'
 import { Product } from 'src/types'
-import { Button, Image, ProductContainer, TextInput } from 'src/ui'
+import { Image, ProductContainer } from 'src/ui'
 import { preOrderProduct } from 'src/utils'
 import styled from 'styled-components'
 
+import { ProductCardForm } from './product-card-form'
+import { Values } from './types'
+
 type Props = {
   product: Product
-}
-
-type Values = { email: string }
-
-const initialValues: Values = {
-  email: '',
 }
 
 export const ProductCard = ({ product }: Props) => {
@@ -61,27 +56,7 @@ export const ProductCard = ({ product }: Props) => {
       <Description>
         <H2>{product.name}</H2>
         <P>{product.description}</P>
-        <Formik
-          initialValues={initialValues}
-          validationSchema={PreOrderSchema}
-          onSubmit={handleSubmit}>
-          {({ values, handleChange }) => (
-            <FormBox>
-              <TextInput
-                value={values.email}
-                onChange={handleChange}
-                name="email"
-                type="email"
-                placeholder="Email">
-                {!isBase && <Button type="submit">{`Pre-order Now`}</Button>}
-              </TextInput>
-
-              {isBase && (
-                <ButtonOnly type="submit">{`Pre-order Now`}</ButtonOnly>
-              )}
-            </FormBox>
-          )}
-        </Formik>
+        <ProductCardForm handleSubmit={handleSubmit} />
       </Description>
 
       {showAlert && <Alert message={alertMessage} onClose={closeAlert} />}
@@ -118,19 +93,6 @@ const Description = styled.div`
   & > :last-child {
     text-align: start;
   }
-`
-const FormBox = styled(Form)`
-  display: flex;
-  flex-direction: column;
-  margin-top: 64px;
-
-  @media ${({ theme }) => theme.breakpoints.bs} {
-    align-items: center;
-    margin-top: 32px;
-  }
-`
-const ButtonOnly = styled(Button)`
-  margin-top: 24px;
 `
 
 const H2 = styled.h2`

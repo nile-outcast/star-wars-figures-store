@@ -1,3 +1,5 @@
+import { useEffect } from 'react'
+import { createPortal } from 'react-dom'
 import { useBreakpoint } from 'src/hooks'
 import { Button, ProductContainer } from 'src/ui'
 import styled from 'styled-components'
@@ -7,16 +9,29 @@ type Props = {
   onClose: () => void
 }
 
-export const Alert = ({ message, onClose }: Props) => (
-  <Wrapper>
-    <Container>
-      <P>{message}</P>
-      <AlertButton type="button" onClick={onClose}>
-        Ok
-      </AlertButton>
-    </Container>
-  </Wrapper>
-)
+export const Alert = ({ message, onClose }: Props) => {
+  const alertContainer = document.createElement('div')
+
+  useEffect(() => {
+    document.body.appendChild(alertContainer)
+
+    return () => {
+      document.body.removeChild(alertContainer)
+    }
+  }, [alertContainer])
+
+  return createPortal(
+    <Wrapper>
+      <Container>
+        <P>{message}</P>
+        <AlertButton type="button" onClick={onClose}>
+          Ok
+        </AlertButton>
+      </Container>
+    </Wrapper>,
+    alertContainer,
+  )
+}
 
 const Wrapper = styled.div`
   position: fixed;
@@ -26,7 +41,6 @@ const Wrapper = styled.div`
   margin: auto;
   height: 100%;
   width: 100%;
-  z-index: 10;
 `
 
 const Container = styled(ProductContainer)`
