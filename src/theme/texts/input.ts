@@ -1,7 +1,9 @@
 import { PointFieldsObject } from 'src/theme/types'
 import { css } from 'styled-components'
 
-export const input: PointFieldsObject = {
+type InputKeys = 'value100'
+
+export const input: PointFieldsObject<InputKeys> = {
   bs: {
     value100: css`
       font-family: Spartan, sans-serif;

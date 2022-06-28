@@ -6,7 +6,7 @@ import { EFFECTS } from './effects'
 import { LAYOUTS } from './layouts'
 import { TEXTS } from './texts'
 
-export const theme: DefaultTheme = {
+export const theme: Readonly<DefaultTheme> = {
   breakpoints: BREAKPOINTS,
   colors: COLORS,
   effects: EFFECTS,

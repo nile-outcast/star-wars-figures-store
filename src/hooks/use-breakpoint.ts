@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
+import { PointKeys } from 'src/theme/types'
 
-export const useBreakpoint = () => {
+export const useBreakpoint = (): PointKeys => {
   const [width, setWidth] = useState<number>(1920)
 
   useEffect(() => {

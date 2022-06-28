@@ -63,4 +63,4 @@ const card: PointFieldsCSS = {
 export const grid = {
   list,
   card,
-}
+} as const

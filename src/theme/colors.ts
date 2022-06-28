@@ -20,4 +20,4 @@ export const COLORS = {
     'stroke-100': '#D6D8E7',
     'stroke-200': '#ADB4E8',
   },
-}
+} as const

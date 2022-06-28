@@ -1,7 +1,9 @@
 import { PointFieldsObject } from 'src/theme/types'
 import { css } from 'styled-components'
 
-export const paragraph: PointFieldsObject = {
+type ParagraphKeys = 'p900' | 'p800' | 'p400'
+
+export const paragraph: PointFieldsObject<ParagraphKeys> = {
   bs: {
     p900: css`
       font-weight: 600;

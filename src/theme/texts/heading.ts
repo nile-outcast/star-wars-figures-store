@@ -1,7 +1,9 @@
 import { PointFieldsObject } from 'src/theme/types'
 import { css } from 'styled-components'
 
-export const heading: PointFieldsObject = {
+type HeadingKeys = 'h900' | 'h800' | 'h700' | 'h600'
+
+export const heading: PointFieldsObject<HeadingKeys> = {
   bs: {
     h900: css`
       font-weight: 700;

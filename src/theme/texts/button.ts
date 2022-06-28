@@ -1,7 +1,9 @@
 import { PointFieldsObject } from 'src/theme/types'
 import { css } from 'styled-components'
 
-export const button: PointFieldsObject = {
+type ButtonKeys = 'btn100'
+
+export const button: PointFieldsObject<ButtonKeys> = {
   bs: {
     btn100: css`
       font-family: Rubik, sans-serif;
